@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body>
+    <div class="sidebar">
+        <h1>NDOUGUEULMA</h1>
+        <h3><a href="dashbord.html">Produits</a></h3>
+         <h3><a href="#link2">Utilisateurs</a></h3>
+    </div>
+    <div class="main-content">
+        <nav class="navbar">
+            <h1 class="green">NDOUGUEULMA</h1>
+        </nav><br>
+        <div class="container ">
+            <div id="card1" class="card text-center">
+                <h2>Nombre de Produits</h2>
+                <h3>
+               <strong class="text-center"> 1200</strong>
+                </h3>
+            </div>
+            <div id="card2" class="card">
+                <h2>Ventes</h2>
+                <h3><strong>200</strong></h3>
+            </div>
+            <div id="card3" class="card">
+                <h2>Clients</h2>
+                <h3><strong>20000</strong></h3>
+            </div>
+        </div>
+        <div class="charts">
+            <div id="chart1" class="chart">
+                <h3>Ventes du mois</h3>
+                <canvas id="myChart1"></canvas>
+            </div>
+            <div id="chart2" class="chart">
+                <h3>Clients</h3>
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

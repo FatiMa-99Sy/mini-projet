@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestion des Produits</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <!-- <link rel="stylesheet" href="admin.css"> -->
+</head>
+<body>
+    <div class="sidebar">
+        <h1>NDOUGUEULMA</h1>
+        <h3><a href="dashbord.html">Produits</a></h3>
+        <h3><a href="#link2">Utilisateurs</a></h3>
+    </div>
+
+    <div class="">
+        <nav class="navbar">
+            <h1 class="green">NDOUGUEULMA</h1>
+        </nav><br>
+        <div class="">
+            <div class="header">
+                <button id="addProductBtn">Ajouter Produit</button>
+            </div>
+    
+            <div id="productModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2 id="modalTitle">Ajouter Produit</h2>
+                    <form id="productForm">
+                        <label for="name">Nom du produit</label>
+                        <input type="text" id="name" name="name" required>
+    
+                        <label for="price">Prix</label>
+                        <input type="number" id="price" name="price" required>
+                        
+                        <label for="description">Description</label>
+                        <input type="text" id="description" name="description" required>
+    
+                        <label for="image">Image</label>
+                        <input type="text" id="image" name="image" required>
+                        
+                        <label for="category">Catégorie</label>
+                        <select id="category" name="category" required>
+                            <option value="">Sélectionnez une catégorie</option>
+                            <option value="Légumes">Légumes</option>
+                            <option value="Fruits">Fruits</option>
+                            <option value="Epices">Epices</option>
+                            <!-- Ajoutez d'autres catégories ici -->
+                        </select>
+                        <button type="submit">Ajouter Produit</button>
+                    </form>
+                </div>
+            </div>
+    
+            <div id="deleteModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <h2>Confirmation de suppression</h2>
+                    <p>Êtes-vous sûr de vouloir supprimer ce produit ?</p>
+                    <button id="confirmDeleteBtn">Supprimer</button>
+                    <button id="cancelDeleteBtn">Annuler</button>
+                </div>
+            </div>
+    
+            <table id="productsTable" class="tabb">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Description</th>
+                        <th>Prix</th>
+                        <th>Image</th>
+                        <th>Catégorie</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="productsBody">
+                    <!-- Products -->
+                </tbody>
+            </table>
+    
+            <div class="pagination">
+                <button id="prevPageBtn">Précédent</button>
+                <button id="nextPageBtn">Suivant</button>
+            </div>
+    
+            <script src="dashboard.js"></script>
+        </div>
+    </div>
+</body>
+</html>
