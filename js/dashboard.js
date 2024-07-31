@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:8080/api/produits';
+const apiUrl = 'https://ndougual-ma-nodejs.onrender.com/api/produits';
 
 document.addEventListener('DOMContentLoaded', () => {
     const addProductBtn = document.getElementById('addProductBtn');

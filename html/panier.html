@@ -1,70 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="styles/produit.css">
-    <script src="produit.js"></script>
-    <title>Mini-Projet</title>
+    <title>Page Produit</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles/panier.css">
+    <script src="js/panier.js"></script>
 </head>
-
 <body>
-    <!-- -----------------------------header------------------------------------- -->
-
-    <header class="banner bg-light ">
-        <!-- --------------------------navbar---------------------------------------- -->
-        <nav class="navbar navbar-expand-lg bg-body-tertiary ">
-            <div class="container-fluid bg-success p-2 ">
-
-                <a class="navbar-brand fst-italic text-light" href="#">NDOUGUEULMA!!</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active  text-light  fw-bold " aria-current="page"
-                                href="index.html">Accueil</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active  text-light  fw-bold" aria-current="page"
-                                href="produit.html">produit</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active  text-light  fw-bold" aria-current="page" href="contact.html">Nous
-                                Contactez</a>
-                        </li>
-                    </ul>
-                    <div>
-                        <form class="d-flex" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        </form>
-                    </div>
-                    <div>
-                       
-                    </div>
-                </div>
-            </div>
-        </nav>
-    </header>
-      
 
     <div class="container mt-5">
-        <h1 class="pro text-center border-bottom border-success border-2 fw-bold mb-5">Liste des produits</h1>
+        <h1 class="text-center">Panier</h1>
         <button class="button btn btn-success" onclick="ouvrirPanier()">Voir Panier</button>
         <div class="row mt-4">
             <!-- Ligne 1 -->
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/niami.jpg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -75,7 +28,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/carotte.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -86,7 +39,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/choux.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -97,7 +50,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/diaxatou.jpg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -112,7 +65,7 @@
             <!-- Ligne 2 -->
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/limon.jpg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -123,7 +76,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/bissap-blanc.jpg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -134,7 +87,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/kani salate.jpg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -145,7 +98,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/sac-soblé.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -159,7 +112,7 @@
             <!-- Ligne 3 -->
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/diw-tirr.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -170,7 +123,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/daxaar.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -181,7 +134,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/pobar.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -192,7 +145,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/pecilles.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -206,7 +159,7 @@
             <!-- Ligne 4 -->
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/banane.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -217,7 +170,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/tomate.jpg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -228,7 +181,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/madde.webp" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -239,7 +192,7 @@
             </div>
             <div class="col-md-3">
                 <div class="card">
-                    <img src="images/patate.jpeg" class="card-img-top" alt="Produit 1">
+                    <img src="niami.jpg" class="card-img-top" alt="Produit 1">
                     <div class="card-body">
                         <h5 class="card-title">Produit 1</h5>
                         <p class="card-text">Description du produit 1.</p>
@@ -251,28 +204,28 @@
         </div>
       
     </div>
-        <!-- ----------------------------------liste des produits fin----------------------------- -->
-          <!-- Modal Panier -->
-          <div class="modal fade" id="panierModal" tabindex="-1" role="dialog" aria-labelledby="panierModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="panierModalLabel">Panier</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <ul id="panier" class="list-group">
-                            <!-- Les produits ajoutés au panier seront affichés ici -->
-                        </ul>
-                    </div>
-                    <div class="modal-footer">
-                        Total des produits : <span id="total-products">0</span>
-                    </div>
+
+    <!-- Modal Panier -->
+    <div class="modal fade" id="panierModal" tabindex="-1" role="dialog" aria-labelledby="panierModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="panierModalLabel">Panier</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <ul id="panier" class="list-group">
+                        <!-- Les produits ajoutés au panier seront affichés ici -->
+                    </ul>
+                </div>
+                <div class="modal-footer">
+                    Total des produits : <span id="total-products">0</span>
                 </div>
             </div>
         </div>
+    </div>
 
     <!-- Modals pour les détails des produits -->
     <div class="modal fade" id="productModal1" tabindex="-1" role="dialog" aria-labelledby="productModalLabel" aria-hidden="true">
@@ -295,23 +248,10 @@
         </div>
     </div>
     
-    <!-- Répétez ce bloc pour chaque produit modal -->    
-
-    <!-- ----------------------------------footer --------------------------------------------- -->
-    <footer class="text-center bg-dark p-5 mt-5  ">
-        <p class=" fw-bold text-black p-2 fs-5 "><span class="text-success  fst-italic ">Ndou</span><span
-                class="text-warning  ">Gueul</span><span class="text-danger  fst-italic ">Maa!</span></p>
-    </footer>
-    <!-- ----------------------------------footer exit-------------------------------------------->
-
-
-    <!-- --------------------------------------script------------------------------------------- -->
-
+    <!-- Répétez ce bloc pour chaque produit modal -->
+    
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <!-- --------------------------------------script exit------------------------------------- -->
 </body>
-
 </html>
