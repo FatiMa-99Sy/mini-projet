@@ -5,52 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulaire d'Inscription</title>
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link href="styles.css" rel="stylesheet">
+    <link href="register.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         <div class="row justify-content-center align-items-center min-vh-100">
-            <div class="col-md-6 ">
+            <div class="col-md-6">
                 <div class="card shadow">
                     <div class="card-body">
                         <h3 class="card-title text-center">Inscription</h3>
                         <form id="signupForm">
-
-                            <div class="loi">
-                                <div class="form-group">
-                                    <label for="fullname">Nom</label>
-                                    <input type="text" class="form-control" id="lastname" placeholder="Entrez votre nom complet">
-                                </div>
-                                <div class="form-group">
-                                    <label for="fullname">Prenom</label>
-                                    <input type="text" class="form-control" id="firstname" placeholder="Entrez votre nom complet">
-                                </div>
+                            <div class="form-group">
+                                <label for="lastName">Nom</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Entrez votre nom">
                             </div>
-                            
-                            <div class="">
-                                <div class="form-group">
-                                    <label for="email">Adresse e-mail</label>
-                                    <input type="email" class="form-control" id="email" placeholder="Entrez votre adresse e-mail">
-                                </div>
-    
-                                <div class="form-group">
-                                    <label for="fullname">Tel</label>
-                                    <input type="number" class="form-control" id="number" placeholder="Entrez votre nom complet">
-                                </div>
+                            <div class="form-group">
+                                <label for="firstName">Prénom</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="Entrez votre prénom">
                             </div>
-                           
-
-                           <div class="loi">
+                            <div class="form-group">
+                                <label for="email">Adresse e-mail</label>
+                                <input type="email" class="form-control" id="email" placeholder="Entrez votre adresse e-mail">
+                            </div>
+                            <div class="form-group">
+                                <label for="number">Téléphone</label>
+                                <input type="text" class="form-control" id="number" placeholder="Entrez votre numéro de téléphone">
+                            </div>
                             <div class="form-group">
                                 <label for="password">Mot de passe</label>
                                 <input type="password" class="form-control" id="password" placeholder="Entrez votre mot de passe">
                             </div>
                             <div class="form-group">
-                                <label for="confirm-password">Confirmez le mot de passe</label>
+                                <label for="confirmPassword">Confirmez le mot de passe</label>
                                 <input type="password" class="form-control" id="confirmPassword" placeholder="Confirmez votre mot de passe">
                             </div>
-                           </div>
-                           
                             <button type="submit" class="btn btn-success btn-block">S'inscrire</button>
                         </form>
                     </div>
@@ -58,16 +46,11 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
-
-
-    <script src="inscrire.js"></script>
-
-
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="register.js"></script>
 </body>
 </html>
