@@ -1,160 +1,130 @@
-const apiUrl = 'https://ndougual-ma-nodejs.onrender.com/api/produits';
-
-document.addEventListener('DOMContentLoaded', () => {
-    const addProductBtn = document.getElementById('addProductBtn');
-    const productModal = document.getElementById('productModal');
-    const closeModalButtons = document.querySelectorAll('.close');
-    const productForm = document.getElementById('productForm');
-    const productsBody = document.getElementById('productsBody');
-
-    let currentProductId = null; // Stocke l'ID 
-
-    addProductBtn.addEventListener('click', () => {
-        productModal.style.display = 'block';
-        productForm.reset();
-        currentProductId = null; 
-    });
-
-    closeModalButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            productModal.style.display = 'none';
-        });
-    });
-
-    window.addEventListener('click', (event) => {
-        if (event.target === productModal) {
-            productModal.style.display = 'none';
-        }
-    });
-
-    fetchProducts();
-
-    productForm.addEventListener('submit', async (event) => {
-        event.preventDefault();
-
-        const formData = new FormData(productForm);
-        const product = {
-            name: formData.get('name'),
-            description: formData.get('description'),
-            price: formData.get('price'),
-            image: formData.get('image'),
-            category: formData.get('category')
-        };
-
-        try {
-            if (currentProductId) {
-                // Modification du produit
-                const response = await fetch(`${apiUrl}/${currentProductId}`, {
-                    method: 'PATCH',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(product)
-                });
-
-                if (response.ok) {
-                    console.log('Produit modifié avec succès');
-                } else {
-                    throw new Error('Erreur lors de la modification du produit');
-                }
-            } else {
-                // Ajout d'un nouveau produit
-                const response = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify(product)
-                });
-
-                if (response.ok) {
-                    console.log('Produit ajouté avec succès');
-                } else {
-                    throw new Error('Erreur lors de l\'ajout du produit');
-                }
-            }
-
-            fetchProducts();
-            productModal.style.display = 'none';
-            productForm.reset();
-            currentProductId = null; 
-        } catch (error) {
-            console.error(error.message);
-        }
-    });
-
-    productsBody.addEventListener('click', async (event) => {
-        const target = event.target;
-        const id = target.getAttribute('data-id');
-
-        if (target.classList.contains('deleteBtn')) {
-            if (id) {
-                try {
-                    const response = await fetch(`${apiUrl}/${id}`, {
-                        method: 'DELETE'
-                    });
-
-                    if (response.ok) {
-                        console.log('Produit supprimé avec succès');
-                        fetchProducts();
-                    } else {
-                        throw new Error('Erreur lors de la suppression du produit');
-                    }
-                } catch (error) {
-                    console.error(error.message);
-                }
-            } else {
-                console.error('ID du produit manquant pour la suppression');
-            }
-        }
-
-        if (target.classList.contains('editBtn')) {
-            if (id) {
-                try {
-                    const response = await fetch(`${apiUrl}/${id}`);
-                    const product = await response.json();
-
-                    document.getElementById('name').value = product.name;
-                    document.getElementById('description').value = product.description;
-                    document.getElementById('price').value = product.price;
-                    document.getElementById('image').value = product.image;
-                    document.getElementById('category').value = product.category;
-
-                    productModal.style.display = 'block';
-                    currentProductId = id; 
-                } catch (error) {
-                    console.error('Erreur lors de la récupération du produit pour modification');
-                }
-            } else {
-                console.error('ID du produit manquant pour la modification');
-            }
-        }
-    });
+document.getElementById('addProductBtn').addEventListener('click', function() {
+    document.getElementById('productForm').reset();
+    document.getElementById('productModal').style.display = 'block';
+    document.getElementById('productId').value = ''; // Clear the hidden field
+    document.getElementById('modalTitle').innerText = 'Ajouter Produit'; // Set modal title
 });
 
-async function fetchProducts() {
-    try {
-        const response = await fetch(apiUrl);
-        const products = await response.json();
-        const productsBody = document.getElementById('productsBody');
-        productsBody.innerHTML = '';
+document.querySelector('#productModal .close').addEventListener('click', function() {
+    document.getElementById('productModal').style.display = 'none';
+});
 
-        products.forEach(product => {
-            const row = document.createElement('tr');
-            row.innerHTML = `
-                <td>${product.name}</td>
-                <td>${product.description}</td>
-                <td>${product.price} €</td>
-                <td>${product.image ? `<img src="${product.image}" alt="${product.name}" width="50">` : 'Aucune image'}</td>
-                <td>${product.category}</td>
-                <td>
-                    <button class="deleteBtn" data-id="${product.id}">Supprimer</button>
-                    <button class="editBtn" data-id="${product.id}">Modifier</button>
-                </td>
-            `;
-            productsBody.appendChild(row);
-        });
-    } catch (error) {
-        console.error('Erreur lors de la récupération des produits');
+document.getElementById('productForm').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const product = {
+        name: document.getElementById('name').value,
+        price: document.getElementById('price').value,
+        description: document.getElementById('description').value,
+        image: document.getElementById('image').value,
+        category: document.getElementById('category').value
+    };
+
+    const productId = document.getElementById('productId').value;
+
+    if (productId) {
+        // Update existing product
+        const url = `https://ndougual-ma-nodejs.onrender.com/api/produits/${productId}`;
+        fetch(url, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Produit mis à jour !');
+            document.getElementById('productModal').style.display = 'none';
+            loadProducts();
+        })
+        .catch(error => console.error('Erreur lors de la mise à jour du produit:', error));
+    } else {
+        // Add new product
+        const url = 'https://ndougual-ma-nodejs.onrender.com/api/produits';
+        fetch(url, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(product)
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert('Produit ajouté !');
+            document.getElementById('productModal').style.display = 'none';
+            loadProducts();
+        })
+        .catch(error => console.error('Erreur lors de l\'ajout du produit:', error));
     }
+});
+
+function loadProducts() {
+    fetch('https://ndougual-ma-nodejs.onrender.com/api/produits')
+        .then(response => response.json())
+        .then(data => {
+            const productsBody = document.getElementById('productsBody');
+            productsBody.innerHTML = '';
+            data.forEach(product => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${product.name}</td>
+                    <td>${product.description}</td>
+                    <td>${product.price}</td>
+                    <td><img src="${product.image}" alt="${product.name}" style="width: 50px;"></td>
+                    <td>${product.category}</td>
+                    <td>
+                        <button onclick="editProduct('${product._id}')">Modifier</button>
+                        <button onclick="deleteProduct('${product._id}')">Supprimer</button>
+                    </td>
+                `;
+                productsBody.appendChild(row);
+            });
+        })
+        .catch(error => console.error('Erreur lors du chargement des produits:', error));
 }
+
+window.onload = loadProducts;
+
+function editProduct(id) {
+    fetch(`https://ndougual-ma-nodejs.onrender.com/api/produits/${id}`)
+        .then(response => response.json())
+        .then(product => {
+            document.getElementById('name').value = product.name;
+            document.getElementById('price').value = product.price;
+            document.getElementById('description').value = product.description;
+            document.getElementById('image').value = product.image;
+            document.getElementById('category').value = product.category;
+            document.getElementById('productId').value = product._id; // Set the hidden field
+
+            document.getElementById('productModal').style.display = 'block';
+            document.getElementById('modalTitle').innerText = 'Modifier Produit'; // Set modal title
+        })
+        .catch(error => console.error('Erreur lors de la récupération du produit:', error));
+}
+
+function deleteProduct(id) {
+    document.getElementById('deleteModal').style.display = 'block';
+
+    document.getElementById('confirmDeleteBtn').onclick = function() {
+        fetch(`http://localhost:8080/api/produits/${id}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.deletedCount > 0) {
+                alert('Produit supprimé !');
+                document.getElementById('deleteModal').style.display = 'none';
+                loadProducts();
+            } else {
+                alert('Erreur lors de la suppression du produit.');
+            }
+        })
+        .catch(error => console.error('Erreur lors de la suppression du produit:', error));
+    };
+
+    document.getElementById('cancelDeleteBtn').onclick = function() {
+        document.getElementById('deleteModal').style.display = 'none';
+    };
+}
+
