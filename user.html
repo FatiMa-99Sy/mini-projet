@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD Form</title>
+    <link rel="stylesheet" href="styles/user.css">
+    <script src="js/user.js" defer></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>NDOUGUEULMA</h1>
+        <h3><a href="admin.html">Dashboard</a></h3>
+        <h3><a href="dashbord.html">Produits</a></h3>
+        <h3><a href="user.html">Utilisateurs</a></h3>
+    </div>
+
+    <div class="main-content">
+        <nav class="navbar">
+            <h1 class="green">NDOUGUEULMA</h1>
+            <div class="user-info">
+                <img src="images/user.jpeg" alt="User Photo" class="user-photo"> <br>
+                <span class="user-name">Khadija Diop</span>
+            </div>
+        </nav> <br> 
+    <h1>CRUD Form</h1>
+    <div class="header">
+        <button id="openModal">Add User</button>
+    </div>
+    <div id="userModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="userForm">
+                <input type="hidden" id="userId" name="userId">
+                <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required><br>
+                <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required><br>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required><br>
+                <label for="number">Number:</label>
+                <input type="number" id="number" name="number" required><br>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required><br>
+                <label for="confirmPassword">Confirm Password:</label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required><br>
+                <label for="role">Role:</label>
+                <select id="role" name="role">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select><br>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <table id="userTable">
+        <thead>
+            <tr>
+                <th>Prenom</th>
+                <th>Nom</th>
+                <th>Email</th>
+                <th>Numero</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Les lignes seront ajoutées ici dynamiquement -->
+        </tbody>
+    </table>
+</body>
+</html>

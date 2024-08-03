@@ -5,38 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Produits</title>
     <link rel="stylesheet" href="styles/dashboard.css">
-    <!-- <link rel="stylesheet" href="admin.css"> -->
+    <script src="js/dashboard.js" defer></script>
 </head>
 <body>
     <div class="sidebar">
         <h1>NDOUGUEULMA</h1>
+        <h3><a href="admin.html">Dashboard</a></h3>
         <h3><a href="dashbord.html">Produits</a></h3>
-        <h3><a href="#link2">Utilisateurs</a></h3>
+        <h3><a href="user.html">Utilisateurs</a></h3>
     </div>
 
-    <div class="">
+    <div class="main-content">
         <nav class="navbar">
             <h1 class="green">NDOUGUEULMA</h1>
-        </nav><br>
-        <div class="">
+            <div class="user-info">
+                <img src="images/user.jpeg" alt="User Photo" class="user-photo"> <br>
+                <span class="user-name">Khadija Diop</span>
+            </div>
+        </nav> <br>       
+        <div class="content">
             <div class="header">
-                <button id="addProductBtn">Ajouter Produit</button>
+                <button id="addProductBtn" class="btn btn-primary">Ajouter Produit</button>
             </div>
     
+            <!-- Modal pour Ajouter/Modifier un Produit -->
             <div id="productModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2 id="modalTitle">Ajouter Produit</h2>
                     <form id="productForm">
+                        <input type="hidden" id="productId">
                         <label for="name">Nom du produit</label>
                         <input type="text" id="name" name="name" required>
-    
+                    
                         <label for="price">Prix</label>
                         <input type="number" id="price" name="price" required>
                         
                         <label for="description">Description</label>
                         <input type="text" id="description" name="description" required>
-    
+                    
                         <label for="image">Image</label>
                         <input type="text" id="image" name="image" required>
                         
@@ -46,24 +53,27 @@
                             <option value="Légumes">Légumes</option>
                             <option value="Fruits">Fruits</option>
                             <option value="Epices">Epices</option>
-                            <!-- Ajoutez d'autres catégories ici -->
                         </select>
                         <button type="submit">Ajouter Produit</button>
                     </form>
+                    
+
                 </div>
             </div>
     
+            <!-- Modal pour la Confirmation de Suppression -->
             <div id="deleteModal" class="modal">
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <h2>Confirmation de suppression</h2>
                     <p>Êtes-vous sûr de vouloir supprimer ce produit ?</p>
-                    <button id="confirmDeleteBtn">Supprimer</button>
-                    <button id="cancelDeleteBtn">Annuler</button>
+                    <button id="confirmDeleteBtn" class="btn btn-danger">Supprimer</button>
+                    <button id="cancelDeleteBtn" class="btn btn-secondary">Annuler</button>
                 </div>
             </div>
     
-            <table id="productsTable" class="tabb">
+            <!-- Table des Produits -->
+            <table id="productsTable" class="table">
                 <thead>
                     <tr>
                         <th>Nom</th>
@@ -75,16 +85,15 @@
                     </tr>
                 </thead>
                 <tbody id="productsBody">
-                    <!-- Products -->
+                    <!-- Les lignes des produits seront ajoutées dynamiquement ici -->
                 </tbody>
             </table>
     
+            <!-- Pagination -->
             <div class="pagination">
-                <button id="prevPageBtn">Précédent</button>
-                <button id="nextPageBtn">Suivant</button>
+                <button id="prevPageBtn" class="btn btn-primary">Précédent</button>
+                <button id="nextPageBtn" class="btn btn-primary">Suivant</button>
             </div>
-    
-            <script src="js/dashboard.js"></script>
         </div>
     </div>
 </body>
