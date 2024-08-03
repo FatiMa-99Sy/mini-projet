@@ -5,8 +5,16 @@
 }
 
 .navbar-nav a:hover {
-    border-bottom: 2px solid orange;
+    border-bottom: 2px solid #fff;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     padding: 10px;
 
+}
+a{
+    text-decoration: none;
+    color: #6c6a6a;
+}
+.log{
+    position: relative;
+    top: 0px;
 }

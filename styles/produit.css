@@ -21,7 +21,17 @@
         .card-title {
             color: green; 
         }
-
+        a{
+            text-decoration: none;
+            color: #6c6a6a;
+        }
+        .log{
+            position: relative;
+            top: 0px;
+        }
+        .valid a{
+            color: #fff;
+        }
         .card-text {
             color: #6c757d; 
         }

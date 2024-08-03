@@ -22,7 +22,14 @@
 .hover{
     color: #fff;
 }
-
+a{
+    text-decoration: none;
+    color: #6c6a6a;
+}
+.log{
+    position: relative;
+    top: 0px;
+}
 .hover:hover{
     color: green;
     background: #fff;
